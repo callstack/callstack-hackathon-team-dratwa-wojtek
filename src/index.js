@@ -16,14 +16,21 @@ import {
   StackNavigation,
 } from '@exponent/ex-navigation';
 
+/** Redux **/
+import { Provider } from 'react-redux';
+import store from './store';
 import Router from './router';
+
+// import TabScreen from './components/TabScreen';
 
 export default class hackathonApp extends Component {
   render() {
     return (
-      <NavigationProvider router={Router}>
-        <StackNavigation initialRoute={Router.getRoute('home')} />
-      </NavigationProvider>
+      <Provider store={store}>
+        <NavigationProvider router={Router}>
+          <StackNavigation initialRoute={Router.getRoute('home')} />
+        </NavigationProvider>
+      </Provider>
     );
   }
 }
