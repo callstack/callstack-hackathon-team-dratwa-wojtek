@@ -9,29 +9,59 @@ import {
     AppRegistry,
     StyleSheet,
     Text,
-    View
+    View,
+    ScrollView
 } from 'react-native';
 import QRCodeScreen from '../components/QRCodeScreen';
+import { Card } from 'react-native-elements';
+import { connect } from 'react-redux';
+import {
+    scan,
+    clear
+} from '../actions/garbage';
+import { Icon } from 'react-native-elements'
 
-export default class QRCodeContainer extends Component {
+class QRCodeContainer extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: null
-        };
+    static propTypes = {
+        garbage: React.PropTypes.shape({}),
+        onScan: React.PropTypes.func.isRequired,
+        clear: React.PropTypes.func.isRequired,
     }
 
-    onScan = (data) => {
-        this.setState({
-            data
-        });
-    }
-
-    render() {
-        const ViewComponent = this.state.data != null ? <Text>{ this.state.data }</Text> : <QRCodeScreen onSuccess={ this.onScan } />;
+    renderData = () => {
         return (
             <View>
+                <View style={styles.actions}>
+                    <Icon name="aspect-ratio" onPress={this.props.clear} size={30} color='#0097CE'/>
+                </View>
+                <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+                    <View style={styles.list}>
+                        {Object.keys(this.props.garbage).map(this.renderItem)}
+                    </View>
+                </ScrollView>
+            </View>
+        );
+    }
+
+    renderItem = (key) => {
+        const item = this.props.garbage[key];
+        return (
+            <Card key={key} title={key}>
+                <Text>
+                    { item.from }
+                </Text>
+                <Text>
+                    { item.to }
+                </Text>
+            </Card>
+        );
+    };
+
+    render() {
+        const ViewComponent = this.props.garbage != null ? this.renderData() : <QRCodeScreen onSuccess={ this.props.onScan } />;
+        return (
+            <View style={styles.container} >
                 { ViewComponent }
             </View>
         );
@@ -40,19 +70,23 @@ export default class QRCodeContainer extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
+        flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
     },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
+    actions: {
+        flexDirection: 'row',
+        paddingTop: 30,
+        paddingRight: 10,
+        justifyContent: 'flex-end',
     },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
+    list: {
+        flexGrow: 1,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
     },
 });
+
+export default connect((state) => ({garbage: state.garbage}), { onScan: scan, clear } )(QRCodeContainer);
