@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, AppRegistry, Alert } from 'react-native';
+import { View, Text, StyleSheet, AppRegistry, Alert, ScrollView} from 'react-native';
 import AppIntro from 'react-native-app-intro';
 
 const styles = StyleSheet.create({
@@ -26,6 +26,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 20,
   },
+  padding: {
+    paddingHorizontal: 25,
+    paddingVertical: 10,
+    borderWidth: 1,
+  },
+
+  problems: {
+    fontSize: 20,
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+
+  }
+
 });
 
 class GettingStartedScreen extends React.Component {
@@ -85,11 +98,38 @@ class GettingStartedScreen extends React.Component {
             <View level={0}><Text style={styles.text}>Page 33</Text></View>
             <View level={-10}><Text style={styles.text}>Page 333</Text></View>
           </View>
-          <View style={[styles.slide, { backgroundColor: '#a4b602' }]}>
-            <View level={5}><Text style={styles.text}>Page 4</Text></View>
-            <View level={10}><Text style={styles.text}>Page 44</Text></View>
-            <View level={15}><Text style={styles.text}>Page 444</Text></View>
-          </View>
+          <ScrollView style={[{ backgroundColor: '#a4b602', flex: 1}]}>
+            <View>
+              <Text style={styles.problems}>
+                If you have a programming problem - contact @mike or tell him about it,
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.problems}>
+                If you have problems about sales or contracts - contact @anna or come and talk about it,
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.problems}>
+                If you have administration problems - contact  @agnes or come and talk about it,
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.problems}>
+                If you have HR or events problems - contact @aniam or come and talk about it.
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.problems}>
+                If you have problems about projects - contact @krzysztof or come and talk about it.
+              </Text>
+            </View>
+            <View>
+              <Text style={styles.problems}>
+                We always try to help you, the best as we can!
+              </Text>
+            </View>
+        </ScrollView>
         </AppIntro>
       </View>
     );
