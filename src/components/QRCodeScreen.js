@@ -15,8 +15,6 @@ import Camera from 'react-native-camera';
 export default class QRCodeScreen extends Component {
 
     static propTypes = {
-        cancelButtonVisible: React.PropTypes.bool,
-        cancelButtonTitle: React.PropTypes.string,
         onSuccess: React.PropTypes.func,
         onCancel: React.PropTypes.func,
     }
@@ -28,9 +26,10 @@ export default class QRCodeScreen extends Component {
 
     _onPressCancel = () => {
         requestAnimationFrame(() => {
-            const { onCancel, navigator } = this.props;
-            // navigator.pop();
-            onCancel && onCancel();
+            const { onCancel, onSuccess } = this.props;
+            // onCancel && onCancel();
+            VibrationIOS.vibrate();
+            onSuccess(JSON.stringify({schedule: {}}));
         });
     }
 
@@ -39,9 +38,8 @@ export default class QRCodeScreen extends Component {
             this.barCodeFlag = false;
 
             setTimeout(() => {
-                const { onSuccess, navigator } = this.props;
+                const { onSuccess } = this.props;
                 VibrationIOS.vibrate();
-                // navigator.pop();
                 onSuccess(result.data);
             }, 1000);
         }
@@ -49,48 +47,57 @@ export default class QRCodeScreen extends Component {
 
     render() {
         this.barCodeFlag = true;
-        const { cancelButtonVisible, cancelButtonTitle} = this.props;
-        const cancelButton = cancelButtonVisible ? <CancelButton onPress={this._onPressCancel} title={cancelButtonTitle} /> : null;
 
         return (
-            <Camera onBarCodeRead={this._onBarCodeRead} style={styles.camera}>
-                <View style={styles.rectangleContainer}>
-                    <View style={styles.rectangle}/>
-                </View>
-                {cancelButton}
-            </Camera>
+            <TouchableOpacity onPress={this._onPressCancel} activeOpacity={0.5} style={styles.container}>
+                <Camera onBarCodeRead={this._onBarCodeRead} style={styles.camera}>
+                    <View style={styles.rectangleContainer}>
+                        <View style={[styles.border, styles.rectangle]}>
+                            <View style={[styles.border, styles.rectangleSmall]}/>
+                        </View>
+                    </View>
+                </Camera>
+            </TouchableOpacity>
         );
     }
 }
 
-const CancelButton = ({ title, onPress }) => (
-    <View style={styles.cancelButton}>
-        <TouchableOpacity onPress={onPress}>
-            <Text style={styles.cancelButtonText}>{title}</Text>
-        </TouchableOpacity>
-    </View>
-);
-
 const styles = StyleSheet.create({
 
+    container: {
+        flexGrow: 1,
+        flexDirection: 'column',
+        alignItems: 'stretch',
+        justifyContent: 'center',
+    },
     camera: {
-        height: 568,
+        flexGrow: 1,
+        flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'center',
     },
 
     rectangleContainer: {
-        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+    },
+
+    border: {
+        borderWidth: 1,
+        borderColor: '#3DA5D9',
         backgroundColor: 'transparent',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+
+    rectangleSmall: {
+        height: 244,
+        width: 244,
     },
 
     rectangle: {
         height: 250,
         width: 250,
-        borderWidth: 2,
-        borderColor: '#00FF00',
-        backgroundColor: 'transparent',
     },
 
     cancelButton: {
