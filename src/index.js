@@ -18,6 +18,10 @@ import {
   TabNavigationItem as TabItem,
 } from '@exponent/ex-navigation';
 
+/** Redux **/
+import { Provider } from 'react-redux';
+import store from './store';
+
 // import TabScreen from './components/TabScreen';
 import Router from './router';
 
@@ -25,13 +29,13 @@ import Router from './router';
 export default class hackathonApp extends Component {
   render() {
     return (
-      <NavigationProvider router={Router}>
-        <StackNavigation initialRoute={Router.getRoute('home')} />
-      </NavigationProvider>
+      <Provider store={store}>
+        <NavigationProvider router={Router}>
+          <StackNavigation initialRoute={Router.getRoute('home')} />
+        </NavigationProvider>
+      </Provider>
     );
   }
 }
-
-
 
 AppRegistry.registerComponent('hackathonApp', () => hackathonApp);
