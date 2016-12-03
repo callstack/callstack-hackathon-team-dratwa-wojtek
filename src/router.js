@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
-
-import {createRouter} from '@exponent/ex-navigation';
+import { createRouter } from '@exponent/ex-navigation';
 import QRCodeContainer from './containers/QRCodeContainer';
-import HomeScreen from './containers/HomeScreen';
+import GettingStarted from './containers/GettingStartedScreen';
 
 export const Router = createRouter(() => ({
   home: () => ({
-    render: Router._makeRoute(HomeScreen),
+    render: Router._makeRoute(GettingStarted),
   }),
   tab: () => ({
     render: Router._makeRoute(QRCodeContainer),
   }),
-}))
+}));
 
 export default Router;
