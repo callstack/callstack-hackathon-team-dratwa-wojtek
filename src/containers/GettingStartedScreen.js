@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, AppRegistry, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, Alert } from 'react-native';
 import AppIntro from 'react-native-app-intro';
 
 const styles = StyleSheet.create({
@@ -32,7 +32,7 @@ class GettingStartedScreen extends React.Component {
   static route = {
     navigationBar: {
       title: 'Getting started',
-    }
+    },
   }
 
   onSkipBtnHandle = (index) => {
@@ -40,8 +40,8 @@ class GettingStartedScreen extends React.Component {
     console.log(index);
   }
 
-  doneBtnHandle = () => {
-    Alert.alert('Done');
+  onSlideChangeHandle = (index, total) => {
+    console.log(index, total);
   }
 
   nextBtnHandle = (index) => {
@@ -49,16 +49,15 @@ class GettingStartedScreen extends React.Component {
     console.log(index);
   }
 
-  onSlideChangeHandle = (index, total) => {
-    console.log(index, total);
+  doneBtnHandle = () => {
+    Alert.alert('Done');
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <AppIntro>
-          <View style={[styles.slide,{ backgroundColor: '#fa931d' }]}>
+          <View style={[styles.slide, { backgroundColor: '#fa931d' }]}>
             <View level={10}>
               <Text style={styles.title}>Who are we and how we work?</Text>
             </View>
@@ -80,7 +79,7 @@ class GettingStartedScreen extends React.Component {
             <View level={5}><Text style={styles.text}>Page 22</Text></View>
             <View level={20}><Text style={styles.text}>Page 2</Text></View>
           </View>
-          <View style={[styles.slide,{ backgroundColor: '#fa931d' }]}>
+          <View style={[styles.slide, { backgroundColor: '#fa931d' }]}>
             <View level={8}><Text style={styles.text}>Page 3</Text></View>
             <View level={0}><Text style={styles.text}>Page 33</Text></View>
             <View level={-10}><Text style={styles.text}>Page 333</Text></View>
