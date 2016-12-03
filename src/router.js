@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {createRouter} from '@exponent/ex-navigation';
+import { createRouter } from '@exponent/ex-navigation';
 import QRCodeContainer from './containers/QRCodeContainer';
 import GettingStarted from './containers/GettingStartedScreen';
 
