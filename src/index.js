@@ -11,11 +11,14 @@ import {
     Text,
     View
 } from 'react-native';
+import TabScreen from './components/TabScreen';
 
 export default class hackathonApp extends Component {
     render() {
+        console.log('objectasdfsad');
         return (
             <View style={styles.container}>
+            <TabScreen>
                 <Text style={styles.welcome}>
                     Welcome to React Native!
                 </Text>
@@ -26,6 +29,7 @@ export default class hackathonApp extends Component {
                     Press Cmd+R to reload,{'\n'}
                     Cmd+D or shake for dev menu
                 </Text>
+            </TabScreen>
             </View>
         );
     }
