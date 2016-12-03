@@ -25,9 +25,11 @@ import Router from './router';
 export default class hackathonApp extends Component {
   render() {
     return (
-      <NavigationProvider router={Router}>
-        <TabScreen></TabScreen>
-      </NavigationProvider>
+      <Provider store={store}> 
+        <NavigationProvider router={Router}>
+          <TabScreen></TabScreen>
+        </NavigationProvider>
+      </Provider>
     );
   }
 }

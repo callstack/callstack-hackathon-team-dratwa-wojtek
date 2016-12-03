@@ -5,8 +5,12 @@ import QRCodeContainer from './containers/QRCodeContainer';
 import HomeScreen from './containers/HomeScreen';
 
 export const Router = createRouter(() => ({
-  home: () => HomeScreen,
-  tab: () => QRCodeContainer,
+  home: () => ({
+    render: Router._makeRoute(HomeScreen),
+  }),
+  tab: () => ({
+    render: Router._makeRoute(QRCodeContainer),
+  }),
 }))
 
 export default Router;
