@@ -32,7 +32,7 @@ class TabScreen extends React.Component {
         </TabItem>
         <TabItem
           id="tab"
-          title="Tab">
+          title="QRCode">
           <StackNavigation
             id="tab"
             initialRoute={Router.getRoute('tab')}
