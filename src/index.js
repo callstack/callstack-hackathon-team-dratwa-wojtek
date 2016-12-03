@@ -14,13 +14,9 @@ import {
 import {
   NavigationProvider,
   StackNavigation,
-  TabNavigation,
-  TabNavigationItem as TabItem,
 } from '@exponent/ex-navigation';
 
-// import TabScreen from './components/TabScreen';
 import Router from './router';
-
 
 export default class hackathonApp extends Component {
   render() {
@@ -31,7 +27,5 @@ export default class hackathonApp extends Component {
     );
   }
 }
-
-
 
 AppRegistry.registerComponent('hackathonApp', () => hackathonApp);
