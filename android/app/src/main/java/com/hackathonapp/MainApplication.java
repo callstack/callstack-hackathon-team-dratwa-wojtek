@@ -4,11 +4,8 @@ import android.app.Application;
 import android.util.Log;
 
 import com.facebook.react.ReactApplication;
-<<<<<<< HEAD
 import com.mmazzarolo.beaconsandroid.BeaconsAndroidPackage;
-=======
 import com.lwansbrough.RCTCamera.RCTCameraPackage;
->>>>>>> 6973c2ce2e5d9e208a4ac96eb4b59c34cb9c7a85
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -30,11 +27,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-<<<<<<< HEAD
-            new BeaconsAndroidPackage()
-=======
+            new BeaconsAndroidPackage(),
             new RCTCameraPackage()
->>>>>>> 6973c2ce2e5d9e208a4ac96eb4b59c34cb9c7a85
       );
     }
   };
