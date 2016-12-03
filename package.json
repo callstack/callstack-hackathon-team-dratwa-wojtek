@@ -9,6 +9,8 @@
   "dependencies": {
     "react": "15.4.1",
     "react-native": "0.39.0",
+    "react-native-beacons-android": "^2.1.0",
+    "react-native-ibeacon": "^0.6.0",
     "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
