@@ -29,9 +29,8 @@ class TabScreen extends React.Component {
             id="home"
             navigatorUID="home"
             initialRoute={Router.getRoute('home')}
-            />
+          />
         </TabItem>
-
       </TabNavigation>
     );
   }
