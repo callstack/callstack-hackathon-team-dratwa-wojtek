@@ -1,7 +1,3 @@
-/**
-* @flow
-*/
-
 import { fetch } from '../fetch';
 
 export const mockSuccess = (response) => ({ type: 'MOCK_SUCCESS', payload: response });
