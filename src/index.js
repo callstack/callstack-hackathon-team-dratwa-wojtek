@@ -24,7 +24,6 @@ import Router from './router';
 
 export default class hackathonApp extends Component {
   render() {
-    console.log('objectasdfsad');
     return (
       <NavigationProvider router={Router}>
         <StackNavigation initialRoute={Router.getRoute('home')} />
