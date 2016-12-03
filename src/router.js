@@ -1,11 +1,13 @@
-import {createRouter} from '@exponent/ex-navigation';
-import {View,Text,StyleSheet} from 'react-native';
+import React, { Component } from 'react';
 
-const HomeContainer = () => <Text>Home Route</Text>;
+import {createRouter} from '@exponent/ex-navigation';
+import HomeScreen from './containers/HomeScreen';
+
+
 
 export const Router = createRouter(() => ({
   home: () => ({
-    render: Router._makeRoute(HomeContainer),
+    render: Router._makeRoute(HomeScreen),
   })
 }))
 
