@@ -1,8 +1,5 @@
 node_modules/
 .DS_Store
-android/.idea/
-android/build/
-android/local.properties
 
 
 
