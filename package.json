@@ -13,8 +13,8 @@
     "react-native": "0.39.0",
     "react-native-app-intro": "^1.1.5",
     "react-native-beacons-android": "^2.1.0",
-    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "react-native-ibeacon": "^0.6.0",
+    "react-native-camera": "git+https://github.com/lwansbrough/react-native-camera.git",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
   },
@@ -22,9 +22,38 @@
     "babel-jest": "17.0.2",
     "babel-preset-react-native": "1.9.0",
     "jest": "17.0.3",
-    "react-test-renderer": "15.4.1"
+    "react-test-renderer": "15.4.1",
+    "babel-eslint": "^7.1.0",
+    "babel-register": "^6.18.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.5.0"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module"
+    },
+    "env": {
+      "es6": true
+    },
+    "rules": {
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "import/prefer-default-export": 0,
+      "newline-per-chained-call": 0,
+      "arrow-parens": 0
+    }
   }
 }
