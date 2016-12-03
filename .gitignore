@@ -5,8 +5,7 @@ android/build/
 android/local.properties
 
 
-dratwa
-11:08 AM
+
 
 # OSX
 
@@ -85,5 +84,3 @@ Pods
 tsconfig.json
 
 jsconfig.json
-
-
