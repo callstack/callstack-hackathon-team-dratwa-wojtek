@@ -14,17 +14,14 @@ import {
 import {
   NavigationProvider,
   StackNavigation,
-  TabNavigation,
-  TabNavigationItem as TabItem,
 } from '@exponent/ex-navigation';
 
 /** Redux **/
 import { Provider } from 'react-redux';
 import store from './store';
-
-// import TabScreen from './components/TabScreen';
 import Router from './router';
 
+// import TabScreen from './components/TabScreen';
 
 export default class hackathonApp extends Component {
   render() {
