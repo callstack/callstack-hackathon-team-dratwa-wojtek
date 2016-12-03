@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
-import AppIntro from 'react-native-app-intro';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+
 import GettingStartedInstruction from '../components/GettingStartedInstruction';
 
 const styles = StyleSheet.create({
@@ -18,6 +17,7 @@ class GettingStartedScreen extends React.Component {
     navigationBar: {
       title: 'Getting started',
     },
+  }
 
   render() {
     return (
